@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { MainComponent } from './layout/main/main.component';
+import { RouterConfigUser, RouterConfigUserToken } from './core/configuration/routerAssistant';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,11 @@ import { MainComponent } from './layout/main/main.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: RouterConfigUserToken, useValue: RouterConfigUser },
+
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

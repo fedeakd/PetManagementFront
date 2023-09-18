@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { GenerateQRComponent } from './pages/generate-qr/generate-qr.component';
 
 const routes: Routes = [{
