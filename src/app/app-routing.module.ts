@@ -7,7 +7,7 @@ import { AdministrationModule } from './modules/administration/administration.mo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/Administration/home',
+    redirectTo: '/Administration/generateQR',
     pathMatch: 'full'
   }, {
     path: 'login',
@@ -21,9 +21,9 @@ const routes: Routes = [
       {
         path: 'Administration',
         loadChildren: () =>
-        AdministrationModule
+          AdministrationModule
       },
-      { path: '**', redirectTo: '/Administration/home', pathMatch: 'full' },
+      { path: '**', redirectTo: '/Administration/generateQR', pathMatch: 'full' },
     ]
   },
 
