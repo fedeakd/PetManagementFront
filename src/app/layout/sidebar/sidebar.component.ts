@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,13 +8,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   isCollapsed = false;
-  @Output() toggleSidenav = new EventEmitter<void>();
+  @Output()
+  @ViewChild('sidenav') sidenav!: MatSidenav;
 
+  ngOnInit(): void { }
 
-  toggleSidebar() {
-    this.toggleSidenav.emit();
-  }
+  toggleSidenav() {
+    console.log("entro por 2")
 
-  ngOnInit(): void {
+    this.sidenav.toggle(true);
   }
 }

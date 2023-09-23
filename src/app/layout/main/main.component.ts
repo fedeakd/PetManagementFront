@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-main',
@@ -7,8 +8,11 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-  @ViewChild('sidenavContainer') sidenavContainer!: MatSidenav;
-  toggleSidenav() {
-    this.sidenavContainer.toggle();
+  @ViewChild(SidebarComponent) sidebarComponent!: SidebarComponent;
+
+  toggleSidebar() {
+    console.log("entro")
+    this.sidebarComponent.sidenav.toggle();
+    //this.sidebarComponent.toggleSidenav();
   }
 }
