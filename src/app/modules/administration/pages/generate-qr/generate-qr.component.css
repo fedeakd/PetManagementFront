@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.center-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    /* Coloca los elementos en columna */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
+}
+
+.my-custom-class {
+    width: 500px;
+    /* Ajusta el ancho según tus necesidades */
+}
