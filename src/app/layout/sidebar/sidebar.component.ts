@@ -7,15 +7,6 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  isCollapsed = false;
-  @Output()
-  @ViewChild('sidenav') sidenav!: MatSidenav;
-
   ngOnInit(): void { }
 
-  toggleSidenav() {
-    console.log("entro por 2")
-
-    this.sidenav.toggle(true);
-  }
 }

@@ -8,11 +8,5 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-  @ViewChild(SidebarComponent) sidebarComponent!: SidebarComponent;
 
-  toggleSidebar() {
-    console.log("entro")
-    this.sidebarComponent.sidenav.toggle();
-    //this.sidebarComponent.toggleSidenav();
-  }
 }
