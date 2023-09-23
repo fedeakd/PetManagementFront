@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,12 +17,15 @@ import { MatDividerModule } from '@angular/material/divider';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AdministrationRoutingModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    MatButtonModule, // Agrega MatInputModule
+    MatIconModule // Agrega MatInputModule
   ]
 })
 export class AdministrationModule { }

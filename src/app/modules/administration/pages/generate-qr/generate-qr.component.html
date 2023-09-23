@@ -1,1 +1,17 @@
-<h1>Estoy aca </h1>
+<form #formulario="ngForm" (ngSubmit)="submitForm()">
+    <mat-form-field>
+      <mat-label>Número (menor o igual a 100)</mat-label>
+      <input
+        matInput
+        type="number"
+        id="numero"
+        name="numero"
+        [(ngModel)]="numero"
+        required
+        min="0"
+        max="100"
+      />
+    </mat-form-field>
+    <button mat-raised-button type="submit">Enviar</button>
+  </form>
+  
