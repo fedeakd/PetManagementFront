@@ -18,5 +18,18 @@
       <br>
       <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid">Enviar</button>
     </form>
+    <br> <br>
+    <div class="scrollable-container">
+        <mat-card>
+          <mat-card-content>
+            <div class="imagen-container">
+                <div *ngFor="let imagen of imagenes" class="imagen">
+                    <img [src]="imagen.download_url" alt="Imagen" width="500" height="500" />
+                  </div>            
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
   </div>
-</div>
+</div> 
