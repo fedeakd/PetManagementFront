@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import {  map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { IRouterConfig } from 'src/app/core/configuration/iRouter';
 
-import {  UserLogin, UserRequest } from 'src/app/core/model/entity/user';
-import { RouterConfigUserAPIToken } from 'src/app/core/configuration/routerAssistant';
+import { UserLogin, UserRequest } from 'src/app/core/model/entity/user';
+import { RouterConfigUserToken } from 'src/app/core/configuration/routerAssistant';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class AuthenticationService {
 
 
   constructor(
-    @Inject(RouterConfigUserAPIToken) protected router: IRouterConfig,
+    @Inject(RouterConfigUserToken) protected router: IRouterConfig,
     private http: HttpClient
   ) {
     this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
