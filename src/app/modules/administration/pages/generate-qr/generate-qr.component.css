@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .center-form {
@@ -19,3 +18,20 @@
     width: 500px;
     /* Ajusta el ancho según tus necesidades */
 }
+
+.scrollable-container {
+    width: 550px; /* Ancho por defecto */
+    height: 500px; /* Alto por defecto */
+    border: 1px solid #ccc; /* Borde para visualización */
+    overflow: auto; /* Agregar barra de desplazamiento si es necesario */
+  
+  }
+  
+  .imagen-container {
+    display: inline-block;
+    margin-right: 10px; /* Espacio entre las imágenes */
+  }
+  
+  .imagen {
+    max-width: 100px; /* Tamaño máximo de las imágenes */
+  }
