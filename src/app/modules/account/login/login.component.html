@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="background-image"></div>
+    <div class="login-card">
+        <mat-card class="custom-card">
+            <mat-card-content class="custom-card-content">
+                <mat-card-title>Login</mat-card-title>
+                <br>
+                <form *ngIf="this.myForm" class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                    <mat-form-field class="custom-form-field">
+                        <mat-label>Usuario</mat-label>
+                        <input matInput placeholder="Escribe tu Usuario" id="userName" name="userName"
+                            formControlName="userName" type="text" required="required" required>
+                    </mat-form-field>
+                    <mat-form-field class="custom-form-field">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput type="password" placeholder="Escribe tu Contraseña" id="password"
+                            name="password" formControlName="password" required="required" required>
+                    </mat-form-field>
+                    <div class="button-container">
+                        <button name="submit" type="submit" mat-raised-button color="primary"
+                            [disabled]="!myForm.valid">Aceptar</button>
+                    </div>
+                    <br>
+                    <mat-error *ngIf="error">{{error}}</mat-error>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

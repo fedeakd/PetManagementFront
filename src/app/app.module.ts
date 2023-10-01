@@ -18,6 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountModule } from './modules/account/account.module';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    AccountModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
