@@ -39,7 +39,8 @@ export class AuthenticationService {
   }
 
   login(userLogin: UserLogin) {
-    return this.http.post<any>(`${this.apiURL}/BearerToken`, JSON.stringify(userLogin), this.httpOptions)
+    console.log(this.apiURL);
+    return this.http.post<any>(`${this.apiURL}/v1/login`, JSON.stringify(userLogin), this.httpOptions)
       .pipe(map(user => {
         let userR: UserRequest;
         userR = {
