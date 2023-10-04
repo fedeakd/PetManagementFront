@@ -29,4 +29,18 @@ export class QRService extends BaseService {
             )
             .pipe(retry(1));
     }
+
+    getGenerate(count?: number): Observable<any> {
+        let params: HttpParams = new HttpParams();
+        if (count !== undefined && count !== null) {
+            params = params.append('text', count);
+        }
+
+        return this.http
+            .get<any>(
+                this.apiURL + "/v1/generate/" + count,
+                //{ params: params }
+            )
+            .pipe(retry(1));
+    }
 }
