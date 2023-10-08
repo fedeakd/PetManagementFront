@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { MainComponent } from './layout/main/main.component';
 import { RouterConfigQR, RouterConfigQRToken, RouterConfigUser, RouterConfigUserToken } from './core/configuration/routerAssistant';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -19,20 +18,14 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountModule } from './modules/account/account.module';
-import { InformationModule } from './modules/information/information.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    SidebarComponent,
-    MainComponent,
   ],
   imports: [
     BrowserModule,
-    AccountModule,
-    InformationModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,

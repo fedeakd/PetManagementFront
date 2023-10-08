@@ -10,12 +10,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MainAdministrationComponent } from './main-administration/main-administration.component';
+import { SidebarComponent } from 'src/app/layout/sidebar/sidebar.component';
+import { FooterComponent } from 'src/app/layout/footer/footer.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
   declarations: [
-    GenerateQRComponent
+    GenerateQRComponent,
+    MainAdministrationComponent,
+    FooterComponent,
+    SidebarComponent,
   ],
   imports: [
     HttpClientModule,
@@ -24,8 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     AdministrationRoutingModule,
     MatToolbarModule,
-    MatSidenavModule,
+    MatSidenavModule, MatListModule,
+    MatMenuModule,
     MatButtonModule,
+    MatExpansionModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule
