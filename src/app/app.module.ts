@@ -19,6 +19,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountModule } from './modules/account/account.module';
+import { InformationModule } from './modules/information/information.module';
 
 
 @NgModule({
@@ -26,11 +27,12 @@ import { AccountModule } from './modules/account/account.module';
     AppComponent,
     FooterComponent,
     SidebarComponent,
-    MainComponent
+    MainComponent,
   ],
   imports: [
     BrowserModule,
     AccountModule,
+    InformationModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
