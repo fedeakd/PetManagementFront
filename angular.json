@@ -59,6 +59,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "someapp:build",
+            "ssl": true
+          },
           "configurations": {
             "production": {
               "browserTarget": "PetManagementFront:build:production"

@@ -33,7 +33,6 @@ import { AccountModule } from './modules/account/account.module';
     MatSidenavModule,
     MatMenuModule,
     MatToolbarModule,
-    MatIconModule,
     MatListModule,
     RouterModule,
     MatExpansionModule,
