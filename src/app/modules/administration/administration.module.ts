@@ -16,7 +16,7 @@ import { FooterComponent } from 'src/app/layout/footer/footer.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatIcon } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -33,6 +33,7 @@ import { MatIcon } from '@angular/material/icon';
     ReactiveFormsModule,
     AdministrationRoutingModule,
     MatToolbarModule,
+    MatIconModule,
     MatSidenavModule, MatListModule,
     MatMenuModule,
     MatButtonModule,
