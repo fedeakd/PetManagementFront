@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QRDetailComponent } from './qrdetail.component';
+import { QrPetFormComponent } from './qr-pet-form.component';
 
-describe('QRDetailComponent', () => {
-  let component: QRDetailComponent;
-  let fixture: ComponentFixture<QRDetailComponent>;
+describe('QrPetFormComponent', () => {
+  let component: QrPetFormComponent;
+  let fixture: ComponentFixture<QrPetFormComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [QRDetailComponent]
+      declarations: [QrPetFormComponent]
     });
-    fixture = TestBed.createComponent(QRDetailComponent);
+    fixture = TestBed.createComponent(QrPetFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

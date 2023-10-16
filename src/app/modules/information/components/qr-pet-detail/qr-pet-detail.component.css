@@ -1,0 +1,17 @@
+.section {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.mat-card {
+    width: 1000px;
+    height: 600px;
+    max-width: 1500px;
+}
+
+.text-inside-grid {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}

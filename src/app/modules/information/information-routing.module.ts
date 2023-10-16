@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { QRDetailComponent } from './pages/qrdetail/qrdetail.component';
+import { QrPetInformationComponent } from './pages/qr-pet-information/qr-pet-information.component';
 
 const routes: Routes = [{
 
   path: '',
   children: [
     {
-      path: 'QRDetail',
-      component: QRDetailComponent
+      path: 'QRPetInformation',
+      component: QrPetInformationComponent
     },
 
   ]
