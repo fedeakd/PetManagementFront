@@ -9,6 +9,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { QRPetDetailComponent } from './components/qr-pet-detail/qr-pet-detail.component';
 import { QrPetFormComponent } from './components/qr-pet-form/qr-pet-form.component';
 import { QrPetInformationComponent } from './pages/qr-pet-information/qr-pet-information.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -23,7 +26,11 @@ import { QrPetInformationComponent } from './pages/qr-pet-information/qr-pet-inf
     MatCardModule,
     MatFormFieldModule,
     MatGridListModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    FlexLayoutModule 
   ]
 })
 export class InformationModule { }
