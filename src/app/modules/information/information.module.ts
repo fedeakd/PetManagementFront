@@ -11,10 +11,9 @@ import { QrPetFormComponent } from './components/qr-pet-form/qr-pet-form.compone
 import { QrPetInformationComponent } from './pages/qr-pet-information/qr-pet-information.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -35,8 +34,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FlexLayoutModule,
-    MatButtonModule 
+    MatButtonModule
   ]
 })
 export class InformationModule { }
