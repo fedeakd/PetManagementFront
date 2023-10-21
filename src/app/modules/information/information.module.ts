@@ -12,6 +12,7 @@ import { QrPetInformationComponent } from './pages/qr-pet-information/qr-pet-inf
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    FlexLayoutModule 
+    FlexLayoutModule,
+    MatButtonModule 
   ]
 })
 export class InformationModule { }

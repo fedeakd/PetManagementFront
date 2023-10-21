@@ -1,0 +1,16 @@
+.custom-form-field {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .custom-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.button-container {
+    margin-top: 20px;
+}

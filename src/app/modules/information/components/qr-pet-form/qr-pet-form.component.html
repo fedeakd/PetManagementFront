@@ -2,27 +2,64 @@
     <mat-card-header>
         <mat-card-title>Detalle del Elemento</mat-card-title>
     </mat-card-header>
-    <mat-card-content fxLayoutAlign="center center">
-        <form *ngIf="this.myForm" fxLayout="row wrap" class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-           <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="16px">
-                <mat-form-field fxFlexFill color="accent">
-                    <input id="fName" matInput type="text" placeholder="Your first name" formControlName="firstName">
-                </mat-form-field>
-                <mat-form-field fxFlexFill color="accent">
-                    <input id="lName" matInput type="text" placeholder="Your last name" formControlName="lastName">
+    <mat-card-content>
+        <form *ngIf="this.myForm" class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+            <div>
+                <mat-form-field class="custom-form-field"color="primary" id="specific-border" class="width-1">
+                    <mat-label>Nombre de la mascota</mat-label>
+                    <input matInput id="petName" name="petName"
+                        formControlName="petName" type="text" required="required" required>
+                </mat-form-field>   
+                <mat-form-field class="custom-form-field"color="primary" id="specific-border" class="width-1">
+                    <mat-label>Mascota descripcion</mat-label>
+                    <input matInput id="petDescription" name="petDescription"
+                        formControlName="petDescription" type="text" required="required" required>
+                </mat-form-field> 
+                <mat-form-field class="custom-form-field"color="primary" id="specific-border" class="width-1">
+                    <mat-label>Mail</mat-label>
+                    <input matInput id="email" name="email"
+                        formControlName="email" type="text" required="required" required>
                 </mat-form-field>
             </div>
+            <div>
+                <mat-form-field class="custom-form-field"color="primary" id="specific-border" class="width-1">
+                    <mat-label>Observacion</mat-label>
+                    <input matInput id="observation" name="observation"
+                        formControlName="observation" type="text" required="required" required>
+                </mat-form-field>
+                <mat-form-field class="custom-form-field"color="primary" id="specific-border" class="width-1">
+                    <mat-label>Nombre del dueño</mat-label>
+                    <input matInput id="ownerName" name="ownerName"
+                        formControlName="ownerName" type="text" required="required" required>
+                </mat-form-field>    
+                <mat-form-field class="custom-form-field"color="primary" id="specific-border" class="width-1">
+                    <mat-label>Fecha de nacimiento</mat-label>
+                    <input matInput id="petBirthdayDate" name="petBirthdayDate"
+                        formControlName="petBirthdayDate" type="text" required="required" required>
+                </mat-form-field>
+            </div>            
+            <div>
+                <mat-form-field class="custom-form-field"color="primary" id="specific-border" class="width-1">
+                    <mat-label>Numero de contacto</mat-label>
+                    <input matInput id="phoneNumber" name="phoneNumber"
+                        formControlName="phoneNumber" type="text" required="required" required>
+                </mat-form-field>
+                <mat-form-field class="custom-form-field"color="primary" id="specific-border" class="width-1">
+                    <mat-label>Numero de contacto 2</mat-label>
+                    <input matInput id="phoneNumberOther" name="phoneNumberOther"
+                        formControlName="phoneNumberOther" type="text" required="required" required>
+                </mat-form-field>    
+                <mat-form-field class="custom-form-field"color="primary" id="specific-border" class="width-1">
+                    <mat-label>Red social</mat-label>
+                    <input matInput id="socialNetworksDescription" name="socialNetworksDescription"
+                        formControlName="socialNetworksDescription" type="text" required="required" required>
+                </mat-form-field>
+                <div class="button-container">
+                    <button name="submit" type="submit" mat-raised-button color="primary"
+                        [disabled]="!myForm.valid">Aceptar</button>
+                </div>
+            </div>
 
-            <mat-form-field fxFlexFill color="accent">
-                <input id="email" matInput type="text" placeholder="Your email" formControlName="email">
-            </mat-form-field>
-            <mat-form-field fxFlexFill color="accent">
-                <textarea
-                    matInput
-                    [rows]="6"
-                    placeholder="Your message"
-                    formControlName="message"></textarea>
-            </mat-form-field>
         </form>
     </mat-card-content>
 </mat-card>
