@@ -1,72 +1,109 @@
-<mat-card class="mat-card" color="primary" >
+<mat-card class="mat-card" color="primary">
     <mat-card-header>
-        <mat-card-title  color="primary" style="color: white;">Detalle del Elemento</mat-card-title>
+        <mat-card-title color="primary" style="color: white;">Detalle del Elemento</mat-card-title>
     </mat-card-header>
     <mat-card-content color="primary">
         <form *ngIf="this.myForm" class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
             <h2 style="color: white;">Mascota</h2>
             <div class="custom-form-field">
-                <mat-form-field color="primary" id="specific-border" class="width-1">
-                    <mat-label>Nombre de la mascota</mat-label>
-                    <input matInput id="petName" name="petName"
-                        formControlName="petName" type="text" required="required" required>
-                </mat-form-field>   
-                <mat-form-field color="primary" id="specific-border" class="width-1">
-
-                    <mat-label>Choose a date</mat-label>
+                <mat-form-field color="primary">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput id="petName" name="petName" formControlName="petName" type="text"
+                        required="required" required>
+                </mat-form-field>
+                <mat-form-field color="primary">
+                    <mat-label>Sexo</mat-label>
+                    <mat-select formControlName="petSex" name="food">
+                        <mat-option *ngFor="let sex of sexDropdown" [value]="sex.id">
+                            {{sex.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field color="primary">
+                    <mat-label>Fecha de nacimiento</mat-label>
                     <input matInput [matDatepicker]="picker" id="petBirthdayDate" name="petBirthdayDate"
-                    formControlName="petBirthdayDate"  required="required" required>
-                    <mat-hint>MM/DD/YYYY</mat-hint>
+                        formControlName="petBirthdayDate" required="required" required>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
             </div>
             <div class="custom-form-field">
-                <mat-form-field color="primary" id="specific-border" class="width-1">
+                <mat-form-field color="primary">
+                    <mat-label>Raza</mat-label>
+                    <input matInput id="petOfBread" name="petOfBread" formControlName="petOfBread" type="text">
+                </mat-form-field>
+                <mat-form-field color="primary">
                     <mat-label>Mascota descripcion</mat-label>
-                    <textarea matInput id="petDescription" name="petDescription"  formControlName="petDescription"  cdkTextareaAutosize  #autosize="cdkTextareaAutosize"
-                    cdkAutosizeMinRows="1" cdkAutosizeMaxRows="3"></textarea>
-                </mat-form-field> 
+                    <textarea matInput id="petDescription" name="petDescription" formControlName="petDescription"
+                        cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                        cdkAutosizeMaxRows="3"></textarea>
+                </mat-form-field>
             </div>
             <h2 style="color: white;">Contacto</h2>
             <div class="custom-form-field">
-                <mat-form-field color="primary" id="specific-border" class="width-1">
-                    <mat-label>Nombre del dueño</mat-label>
-                    <input matInput id="ownerName" name="ownerName"
-                        formControlName="ownerName" type="text" required="required" required>
-                </mat-form-field>   
-                <mat-form-field color="primary" id="specific-border" class="width-1">
-                    <mat-label>Mail</mat-label>
-                    <input matInput id="email" name="email"
-                        formControlName="email" type="text" required="required" required>
-                </mat-form-field>                 
-                <mat-form-field color="primary" id="specific-border" class="width-1">
-                    <mat-label>Observacion</mat-label>
-                    <input matInput id="observation" name="observation"
-                        formControlName="observation" type="text" required="required" required>
+                <mat-form-field color="primary">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput id="ownerName" name="ownerName" formControlName="ownerName" type="text">
                 </mat-form-field>
-     
-            </div>            
+                <mat-form-field color="primary">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput id="ownerSurName" name="ownerSurName" formControlName="ownerSurName" type="text"
+                        required="required" required>
+                </mat-form-field>
+                <mat-form-field color="primary">
+                    <mat-label>Direccion</mat-label>
+                    <input matInput id="ownerAddress" name="ownerAddress" formControlName="ownerAddress" type="text"
+                        required="required" required>
+                </mat-form-field>
+            </div>
             <div class="custom-form-field">
-                <mat-form-field color="primary" id="specific-border" class="width-1">
+                <mat-form-field color="primary">
                     <mat-label>Numero de contacto</mat-label>
-                    <input matInput id="phoneNumber" name="phoneNumber"
-                        formControlName="phoneNumber" type="text" required="required" required>
+                    <input matInput id="ownerPhoneNumber" name="ownerPhoneNumber" formControlName="ownerPhoneNumber"
+                        type="text" required="required" required>
                 </mat-form-field>
-                <mat-form-field color="primary" id="specific-border" class="width-1">
+
+                <mat-form-field color="primary">
                     <mat-label>Numero de contacto 2</mat-label>
-                    <input matInput id="phoneNumberOther" name="phoneNumberOther"
-                        formControlName="phoneNumberOther" type="text" required="required" required>
-                </mat-form-field>    
-                <mat-form-field color="primary" id="specific-border" class="width-1">
-                    <mat-label>Red social</mat-label>
-                    <input matInput id="socialNetworksDescription" name="socialNetworksDescription"
-                        formControlName="socialNetworksDescription" type="text" required="required" required>
+                    <input matInput id="ownerPhoneNumberOther" name="ownerPhoneNumberOther"
+                        formControlName="ownerPhoneNumberOther" type="text">
                 </mat-form-field>
+
+                <mat-form-field color="primary">
+                    <mat-label>Numero de contacto 3</mat-label>
+                    <input matInput id="ownerPhoneNumberOtherTwo" name="ownerPhoneNumberOtherTwo"
+                        formControlName="ownerPhoneNumberOtherTwo" type="text">
+                </mat-form-field>
+            </div>
+            <div class="custom-form-field">
+
+                <mat-form-field color="primary">
+                    <mat-label>Email</mat-label>
+                    <input matInput id="ownerEmail" name="ownerEmail" formControlName="ownerEmail" type="email"
+                        required="required" required>
+                    <mat-error *ngIf="f?.ownerEmail?.errors?.required">campo requerido</mat-error>
+                    <mat-error *ngIf="f.ownerEmail.errors?.minlength">tiene que ser mayor de
+                        {{f.ownerEmail.errors?.minlength?.requiredLength}} caracteres</mat-error>
+                    <mat-error *ngIf="f?.ownerEmail?.errors?.maxLength">tiene que ser menor de
+                        {{f.ownerEmail.errors?.minlength?.requiredLength}} caracteres</mat-error>
+                    <mat-error *ngIf="f?.ownerEmail?.invalid">mail invalido</mat-error>
+                </mat-form-field>
+
+                <mat-form-field color="primary">
+                    <mat-label>Observacion</mat-label>
+                    <textarea matInput id="ownerObservation" name="ownerObservation" formControlName="ownerObservation"
+                        cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                        cdkAutosizeMaxRows="3"></textarea>
+                </mat-form-field>
+
+            </div>
+            <div class="custom-form-field">
                 <div class="button-container">
                     <button name="submit" type="submit" mat-raised-button color="primary"
                         [disabled]="!myForm.valid">Aceptar</button>
                 </div>
+                <mat-error *ngIf="error">{{error}}</mat-error>
+
             </div>
 
         </form>

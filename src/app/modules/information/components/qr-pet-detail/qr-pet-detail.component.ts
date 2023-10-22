@@ -10,14 +10,18 @@ export class QRPetDetailComponent {
   breakpoint!: number;
   petInformation: PetQRInfotmation = {
     petName: "Paty",
-    email: "perros@perdidos.com",
+    ownerAddress: "perros@perdidos.com",
     petDescription: "bla bla bala bla bla",
-    observation: "asdasdasda",
+    ownerObservation: "asdasdasda",
     ownerName: "federico santamaria",
+    ownerEmail: "asdasd",
+    ownerSurName: "dasdasdasdas",
+    petOfBread: "asdasdas",
+    petSex: 1,
     petBirthdayDate: "12/12/1933",
-    phoneNumber: "112312412",
-    phoneNumberOther: "12341412",
-    socialNetworksDescription: "instagram"
+    ownerPhoneNumber: "112312412",
+    ownerPhoneNumberOther: "12341412",
+    ownerPhoneNumberOtherTwo: "instagram"
   };
 
   ngOnInit() {
