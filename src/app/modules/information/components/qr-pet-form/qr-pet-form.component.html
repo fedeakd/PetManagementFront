@@ -30,6 +30,8 @@
                         formControlName="petBirthdayDate" required="required" required>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="f?.petBirthdayDate?.invalid">campo requerido</mat-error>
+
                 </mat-form-field>
             </div>
             <div class="custom-form-field">
