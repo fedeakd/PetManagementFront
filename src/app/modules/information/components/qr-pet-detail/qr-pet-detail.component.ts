@@ -10,18 +10,21 @@ export class QRPetDetailComponent {
   breakpoint!: number;
   petInformation: PetQRInfotmation = {
     petName: "Paty",
-    ownerAddress: "perros@perdidos.com",
-    petDescription: "bla bla bala bla bla",
-    ownerObservation: "asdasdasda",
-    ownerName: "federico santamaria",
-    ownerEmail: "asdasd",
-    ownerSurName: "dasdasdasdas",
-    petOfBread: "asdasdas",
     petSex: 1,
-    petBirthdayDate: "12/12/1933",
-    ownerPhoneNumber: "112312412",
-    ownerPhoneNumberOther: "12341412",
-    ownerPhoneNumberOtherTwo: "instagram"
+    petBirthdayDate: "12/12/2023",
+    petOfBread: "labrador",
+    petDescription: "el perro tiene sarna por favor no lo toques",
+
+    ownerName: "Federico",
+    ownerSurName: "Santamaria",
+    ownerPhoneNumber: "1168879110",
+    ownerPhoneNumberOther: "1168879110",
+    ownerPhoneNumberOtherTwo: "1168879110",
+    ownerAddress: "Buenos Aires, Banfield, Berutti 2077",
+    ownerEmail: "Federico.santamaria@gmail.com",
+    ownerObservation: "Por favor por cualquier duda conctate mi nunero en mi telefono yo soyt ada Por favor por cualquier duda conctate mi nunero en mi telefono yo soyt adaPor favor por cualquier duda conctate mi nunero en mi telefono yo soyt ada",
+
+
   };
 
   ngOnInit() {

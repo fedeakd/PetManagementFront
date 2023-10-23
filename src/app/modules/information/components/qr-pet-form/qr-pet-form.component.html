@@ -1,148 +1,141 @@
-<mat-card class="mat-card" color="primary">
-    <mat-card-header>
-        <mat-card-title color="primary" style="color: white;">Detalle del Elemento</mat-card-title>
-    </mat-card-header>
-    <mat-card-content color="primary">
-        <form *ngIf="this.myForm" class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-            <h2 style="color: white;">Mascota</h2>
-            <div class="custom-form-field">
-                <mat-form-field color="primary">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput id="petName" name="petName" formControlName="petName" type="text"
-                        required="required" required>
-                    <mat-error *ngIf="f?.petName?.errors?.required">campo requerido</mat-error>
-                    <mat-error *ngIf="f.petName.errors?.minlength">tiene que ser mayor de
-                        {{f.petName.errors?.minlength?.requiredLength}} caracteres</mat-error>
-                    <mat-error *ngIf="f?.petName?.errors?.maxlength">tiene que ser menor de
-                        {{f.petName.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
-                <mat-form-field color="primary">
-                    <mat-label>Sexo</mat-label>
-                    <mat-select formControlName="petSex" name="food">
-                        <mat-option *ngFor="let sex of sexDropdown" [value]="sex.id">
-                            {{sex.name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field color="primary">
-                    <mat-label>Fecha de nacimiento</mat-label>
-                    <input matInput [matDatepicker]="picker" id="petBirthdayDate" name="petBirthdayDate"
-                        formControlName="petBirthdayDate" required="required" required>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                    <mat-error *ngIf="f?.petBirthdayDate?.invalid">campo requerido</mat-error>
+<form *ngIf="this.myForm" class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <h2 class="label-text">Mascota</h2>
+    <div class="custom-form-field">
+        <mat-form-field color="primary">
+            <mat-label>Nombre</mat-label>
+            <input matInput id="petName" name="petName" formControlName="petName" type="text" required="required"
+                required>
+            <mat-error *ngIf="f?.petName?.errors?.required">campo requerido</mat-error>
+            <mat-error *ngIf="f.petName.errors?.minlength">tiene que ser mayor de
+                {{f.petName.errors?.minlength?.requiredLength}} caracteres</mat-error>
+            <mat-error *ngIf="f?.petName?.errors?.maxlength">tiene que ser menor de
+                {{f.petName.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
+        <mat-form-field color="primary">
+            <mat-label>Sexo</mat-label>
+            <mat-select formControlName="petSex" name="food">
+                <mat-option *ngFor="let sex of sexDropdown" [value]="sex.id">
+                    {{sex.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field color="primary">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput [matDatepicker]="picker" id="petBirthdayDate" name="petBirthdayDate"
+                formControlName="petBirthdayDate" required="required" required>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="f?.petBirthdayDate?.invalid">campo requerido</mat-error>
 
-                </mat-form-field>
-            </div>
-            <div class="custom-form-field">
-                <mat-form-field color="primary">
-                    <mat-label>Raza</mat-label>
-                    <input matInput id="petOfBread" name="petOfBread" formControlName="petOfBread" type="text">
-                    <mat-error *ngIf="f?.petOfBread?.errors?.maxlength">tiene que ser menor de
-                        {{f.petOfBread.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
-                <mat-form-field color="primary">
-                    <mat-label>Mascota descripcion</mat-label>
-                    <textarea matInput id="petDescription" name="petDescription" formControlName="petDescription"
-                        cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
-                        cdkAutosizeMaxRows="3"></textarea>
-                    <mat-error *ngIf="f?.petDescription?.errors?.maxlength">tiene que ser menor de
-                        {{f.petDescription.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
-            </div>
-            <h2 style="color: white;">Contacto</h2>
-            <div class="custom-form-field">
-                <mat-form-field color="primary">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput id="ownerName" name="ownerName" formControlName="ownerName" type="text">
-                    <mat-error *ngIf="f?.ownerName?.errors?.required">campo requerido</mat-error>
-                    <mat-error *ngIf="f.ownerName.errors?.minlength">tiene que ser mayor de
-                        {{f.ownerName.errors?.minlength?.requiredLength}} caracteres</mat-error>
-                    <mat-error *ngIf="f?.ownerName?.errors?.maxlength">tiene que ser menor de
-                        {{f.ownerName.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
-                <mat-form-field color="primary">
-                    <mat-label>Apellido</mat-label>
-                    <input matInput id="ownerSurName" name="ownerSurName" formControlName="ownerSurName" type="text"
-                        required="required" required>
-                    <mat-error *ngIf="f?.ownerSurName?.errors?.required">campo requerido</mat-error>
-                    <mat-error *ngIf="f.ownerSurName.errors?.minlength">tiene que ser mayor de
-                        {{f.ownerSurName.errors?.minlength?.requiredLength}} caracteres</mat-error>
-                    <mat-error *ngIf="f?.ownerSurName?.errors?.maxlength">tiene que ser menor de
-                        {{f.ownerSurName.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
-                <mat-form-field color="primary">
-                    <mat-label>Direccion</mat-label>
-                    <input matInput id="ownerAddress" name="ownerAddress" formControlName="ownerAddress" type="text"
-                        required="required" required>
-                    <mat-error *ngIf="f?.ownerAddress?.errors?.required">campo requerido</mat-error>
-                    <mat-error *ngIf="f.ownerAddress.errors?.minlength">tiene que ser mayor de
-                        {{f.ownerAddress.errors?.minlength?.requiredLength}} caracteres</mat-error>
-                    <mat-error *ngIf="f?.ownerAddress?.errors?.maxlength">tiene que ser menor de
-                        {{f.ownerAddress.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
-            </div>
-            <div class="custom-form-field">
-                <mat-form-field color="primary">
-                    <mat-label>Numero de contacto</mat-label>
-                    <input matInput id="ownerPhoneNumber" name="ownerPhoneNumber" formControlName="ownerPhoneNumber"
-                        type="text" required="required" required>
-                    <mat-error *ngIf="f?.ownerPhoneNumber?.errors?.required">campo requerido</mat-error>
-                    <mat-error *ngIf="f.ownerPhoneNumber.errors?.minlength">tiene que ser mayor de
-                        {{f.ownerPhoneNumber.errors?.minlength?.requiredLength}} caracteres</mat-error>
-                    <mat-error *ngIf="f?.ownerPhoneNumber?.errors?.maxlength">tiene que ser menor de
-                        {{f.ownerPhoneNumber.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
+        </mat-form-field>
+    </div>
+    <div class="custom-form-field">
+        <mat-form-field color="primary">
+            <mat-label>Raza</mat-label>
+            <input matInput id="petOfBread" name="petOfBread" formControlName="petOfBread" type="text">
+            <mat-error *ngIf="f?.petOfBread?.errors?.maxlength">tiene que ser menor de
+                {{f.petOfBread.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
+        <mat-form-field color="primary">
+            <mat-label>Mascota descripcion</mat-label>
+            <textarea matInput id="petDescription" name="petDescription" formControlName="petDescription"
+                cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="3"></textarea>
+            <mat-error *ngIf="f?.petDescription?.errors?.maxlength">tiene que ser menor de
+                {{f.petDescription.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
+    </div>
+    <h2 class="label-text">Contacto</h2>
+    <div class="custom-form-field">
+        <mat-form-field color="primary">
+            <mat-label>Nombre</mat-label>
+            <input matInput id="ownerName" name="ownerName" formControlName="ownerName" type="text">
+            <mat-error *ngIf="f?.ownerName?.errors?.required">campo requerido</mat-error>
+            <mat-error *ngIf="f.ownerName.errors?.minlength">tiene que ser mayor de
+                {{f.ownerName.errors?.minlength?.requiredLength}} caracteres</mat-error>
+            <mat-error *ngIf="f?.ownerName?.errors?.maxlength">tiene que ser menor de
+                {{f.ownerName.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
+        <mat-form-field color="primary">
+            <mat-label>Apellido</mat-label>
+            <input matInput id="ownerSurName" name="ownerSurName" formControlName="ownerSurName" type="text"
+                required="required" required>
+            <mat-error *ngIf="f?.ownerSurName?.errors?.required">campo requerido</mat-error>
+            <mat-error *ngIf="f.ownerSurName.errors?.minlength">tiene que ser mayor de
+                {{f.ownerSurName.errors?.minlength?.requiredLength}} caracteres</mat-error>
+            <mat-error *ngIf="f?.ownerSurName?.errors?.maxlength">tiene que ser menor de
+                {{f.ownerSurName.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
+        <mat-form-field color="primary">
+            <mat-label>Direccion</mat-label>
+            <input matInput id="ownerAddress" name="ownerAddress" formControlName="ownerAddress" type="text"
+                required="required" required>
+            <mat-error *ngIf="f?.ownerAddress?.errors?.required">campo requerido</mat-error>
+            <mat-error *ngIf="f.ownerAddress.errors?.minlength">tiene que ser mayor de
+                {{f.ownerAddress.errors?.minlength?.requiredLength}} caracteres</mat-error>
+            <mat-error *ngIf="f?.ownerAddress?.errors?.maxlength">tiene que ser menor de
+                {{f.ownerAddress.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="custom-form-field">
+        <mat-form-field color="primary">
+            <mat-label>Numero de contacto</mat-label>
+            <input matInput id="ownerPhoneNumber" name="ownerPhoneNumber" formControlName="ownerPhoneNumber" type="text"
+                required="required" required>
+            <mat-error *ngIf="f?.ownerPhoneNumber?.errors?.required">campo requerido</mat-error>
+            <mat-error *ngIf="f.ownerPhoneNumber.errors?.minlength">tiene que ser mayor de
+                {{f.ownerPhoneNumber.errors?.minlength?.requiredLength}} caracteres</mat-error>
+            <mat-error *ngIf="f?.ownerPhoneNumber?.errors?.maxlength">tiene que ser menor de
+                {{f.ownerPhoneNumber.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
 
-                <mat-form-field color="primary">
-                    <mat-label>Numero de contacto 2</mat-label>
-                    <input matInput id="ownerPhoneNumberOther" name="ownerPhoneNumberOther"
-                        formControlName="ownerPhoneNumberOther" type="text">
-                    <mat-error *ngIf="f?.ownerPhoneNumberOther?.errors?.maxlength">tiene que ser menor de
-                        {{f.ownerPhoneNumberOther.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
+        <mat-form-field color="primary">
+            <mat-label>Numero de contacto 2</mat-label>
+            <input matInput id="ownerPhoneNumberOther" name="ownerPhoneNumberOther"
+                formControlName="ownerPhoneNumberOther" type="text">
+            <mat-error *ngIf="f?.ownerPhoneNumberOther?.errors?.maxlength">tiene que ser menor de
+                {{f.ownerPhoneNumberOther.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
 
-                <mat-form-field color="primary">
-                    <mat-label>Numero de contacto 3</mat-label>
-                    <input matInput id="ownerPhoneNumberOtherTwo" name="ownerPhoneNumberOtherTwo"
-                        formControlName="ownerPhoneNumberOtherTwo" type="text">
-                    <mat-error *ngIf="f?.ownerPhoneNumberOtherTwo?.errors?.maxlength">tiene que ser menor de
-                        {{f.ownerPhoneNumberOtherTwo.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
-            </div>
-            <div class="custom-form-field">
+        <mat-form-field color="primary">
+            <mat-label>Numero de contacto 3</mat-label>
+            <input matInput id="ownerPhoneNumberOtherTwo" name="ownerPhoneNumberOtherTwo"
+                formControlName="ownerPhoneNumberOtherTwo" type="text">
+            <mat-error *ngIf="f?.ownerPhoneNumberOtherTwo?.errors?.maxlength">tiene que ser menor de
+                {{f.ownerPhoneNumberOtherTwo.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="custom-form-field">
 
-                <mat-form-field color="primary">
-                    <mat-label>Email</mat-label>
-                    <input matInput id="ownerEmail" name="ownerEmail" formControlName="ownerEmail" type="email"
-                        required="required" required>
-                    <mat-error *ngIf="f?.ownerEmail?.errors?.required">campo requerido</mat-error>
-                    <mat-error *ngIf="f.ownerEmail.errors?.minlength">tiene que ser mayor de
-                        {{f.ownerEmail.errors?.minlength?.requiredLength}} caracteres</mat-error>
-                    <mat-error *ngIf="f?.ownerEmail?.errors?.maxlength">tiene que ser menor de
-                        {{f.ownerEmail.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                    <mat-error *ngIf="f?.ownerEmail?.invalid">mail invalido</mat-error>
-                </mat-form-field>
+        <mat-form-field color="primary">
+            <mat-label>Email</mat-label>
+            <input matInput id="ownerEmail" name="ownerEmail" formControlName="ownerEmail" type="email"
+                required="required" required>
+            <mat-error *ngIf="f?.ownerEmail?.errors?.required">campo requerido</mat-error>
+            <mat-error *ngIf="f.ownerEmail.errors?.minlength">tiene que ser mayor de
+                {{f.ownerEmail.errors?.minlength?.requiredLength}} caracteres</mat-error>
+            <mat-error *ngIf="f?.ownerEmail?.errors?.maxlength">tiene que ser menor de
+                {{f.ownerEmail.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+            <mat-error *ngIf="f?.ownerEmail?.invalid">mail invalido</mat-error>
+        </mat-form-field>
 
-                <mat-form-field color="primary">
-                    <mat-label>Observacion</mat-label>
-                    <textarea matInput id="ownerObservation" name="ownerObservation" formControlName="ownerObservation"
-                        cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
-                        cdkAutosizeMaxRows="3"></textarea>
-                    <mat-error *ngIf="f?.ownerObservation?.errors?.maxlength">tiene que ser menor de
-                        {{f.ownerObservation.errors?.maxlength?.requiredLength}} caracteres</mat-error>
-                </mat-form-field>
+        <mat-form-field color="primary">
+            <mat-label>Observacion</mat-label>
+            <textarea matInput id="ownerObservation" name="ownerObservation" formControlName="ownerObservation"
+                cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="3"></textarea>
+            <mat-error *ngIf="f?.ownerObservation?.errors?.maxlength">tiene que ser menor de
+                {{f.ownerObservation.errors?.maxlength?.requiredLength}} caracteres</mat-error>
+        </mat-form-field>
 
-            </div>
-            <div class="custom-form-field">
-                <div class="button-container">
-                    <button name="submit" type="submit" mat-raised-button color="primary"
-                        [disabled]="!myForm.valid">Aceptar</button>
-                </div>
-                <mat-error *ngIf="error">{{error}}</mat-error>
+    </div>
+    <div class="custom-form-field">
+        <div class="button-container">
+            <button name="submit" type="submit" mat-raised-button color="primary"
+                [disabled]="!myForm.valid">Aceptar</button>
+        </div>
+        <mat-error *ngIf="error">{{error}}</mat-error>
 
-            </div>
+    </div>
 
-        </form>
-    </mat-card-content>
-</mat-card>
+</form>
