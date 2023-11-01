@@ -6,7 +6,6 @@ export class PetQR {
     petOfBread?: string;
     petDescription?: string;
 
-
     ownerName?: string;
     ownerSurName?: string;
     ownerPhoneNumber?: string;

@@ -19,54 +19,42 @@ export class GenerateQRComponent implements OnInit {
 
 
   constructor(private qrService: QRService,
-    private http: HttpClient,
-     private routeActive: ActivatedRoute,
     private router: Router,) { }
   ngOnInit(): void {
-
-    forkJoin({
-     // listHolidayCountry: this.qrService.get(123),
-      list: this.qrService.generate(),
-    }).subscribe(data => {
-      const jszip = new JSZip();
-      for(let i = 0; i < data.list.length; i++) {
-        var binary = atob(data.list[i].fileContents);
-        var array = [];
-
-        for (let j = 0; j < binary.length; j++) {
-          array.push(binary.charCodeAt(j));
-        }
-
-        let image = new Blob([new Uint8Array(array)], {type:  data.list[i].contentType});
-        
-        jszip.file(`${data.list[i].fileDownloadName}.png`, image)
-
-        if(i === (data.list.length -1)){
-          jszip.generateAsync({ type: 'blob' }).then(function(content) {
-            // see FileSaver.js
-            saveAs(content, 'QRs.zip');
-          });
-        }
-      }
-  });
-
     this.myForm = new FormGroup({
       countQR: new FormControl([Validators.required, Validators.min(1), Validators.max(100)]),
     });
-
-    const apiKey = 'yQ4vJ4WgpLJzKa-AnmgkzzO5y7gKY5IzkgcTdY0Zvv0';
-
-    // Realiza una solicitud HTTP a la API de Unsplash para obtener imágenes
-      this.http.get<any[]>(`https://picsum.photos/v2/list?page=1&limit=100`)
-         .subscribe(data => {
-           this.imagenes = data;
-         });
   }
 
   get f() { return this.myForm.controls; }
- 
+
   onSubmit(form: FormGroup) {
     if (form.valid) {
+      forkJoin({
+        // listHolidayCountry: this.qrService.get(123),
+        list: this.qrService.generate(form.value.countQR),
+      }).subscribe(data => {
+        const jszip = new JSZip();
+        for (let i = 0; i < data.list.length; i++) {
+          var binary = atob(data.list[i].fileContents);
+          var array = [];
+
+          for (let j = 0; j < binary.length; j++) {
+            array.push(binary.charCodeAt(j));
+          }
+
+          let image = new Blob([new Uint8Array(array)], { type: data.list[i].contentType });
+
+          jszip.file(`${data.list[i].fileDownloadName}.png`, image)
+
+          if (i === (data.list.length - 1)) {
+            jszip.generateAsync({ type: 'blob' }).then(function (content) {
+              // see FileSaver.js
+              saveAs(content, 'QRs.zip');
+            });
+          }
+        }
+      });
       // Procesa el número aquí
       console.log('Número ingresado:', form.value.countQR);
     }

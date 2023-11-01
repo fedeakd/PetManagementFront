@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PetQRForm } from 'src/app/core/model/entity/qrInformation';
+import { QRService } from 'src/app/shared/service/repository/qr.service';
 
 @Component({
   selector: 'app-qr-pet-form',
@@ -7,12 +10,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./qr-pet-form.component.css']
 })
 export class QrPetFormComponent {
+  @Input() guidID!: string;
   myForm!: FormGroup;
   loading = false;
   submitted = false;
   error = '';
   sexDropdown: any = {};
 
+  constructor(
+    private qrService: QRService,
+    private router: Router) {
+
+  }
 
   ngOnInit(): void {
     this.sexDropdown = [
@@ -46,6 +55,36 @@ export class QrPetFormComponent {
   }
 
   onSubmit(form: FormGroup) {
+
+    let petQR: PetQRForm;
+
+    console.log(this.guidID);
+
+    petQR = {
+      petName: form.value.petName,
+      petSex: form.value.petSex, //combo de eleccion
+      petBirthdayDate: form.value.petBirthdayDate,
+      petOfBread: form.value.petOfBread,
+      petDescription: form.value.petDescription,
+
+      ownerName: form.value.ownerName,
+      ownerSurName: form.value.ownerSurName,
+      ownerPhoneNumber: form.value.ownerPhoneNumber,
+      ownerPhoneNumberOther: form.value.ownerPhoneNumberOther,
+      ownerPhoneNumberOtherTwo: form.value.ownerPhoneNumberOtherTwo,
+      ownerAddress: form.value.ownerAddress,
+      ownerEmail: form.value.ownerEmail,
+      ownerObservation: form.value.ownerObservation,
+    }
+
+    this.qrService.CreatePetQrInformation(this.guidID, petQR).subscribe((data: {}) => {
+      this.router.navigate(['holidays/holidayDefinitionIndex']);
+    }, err => {
+      console.log(err);
+      // if (err?.reponseError)
+      // this.messageError = JSON.parse(err?.reponseError)?.Description[0];
+    },);
+
     console.log(form.value);
   }
 
