@@ -78,7 +78,7 @@ export class QrPetFormComponent {
     }
 
     this.qrService.CreatePetQrInformation(this.guidID, petQR).subscribe((data: {}) => {
-      this.router.navigate(['holidays/holidayDefinitionIndex']);
+      location.reload();
     }, err => {
       console.log(err);
       // if (err?.reponseError)
