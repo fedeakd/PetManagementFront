@@ -5,7 +5,7 @@
             <mat-card-title color="primary" style="color: white;">Detalle del Elemento</mat-card-title>
         </mat-card-header>
         <mat-card-content *ngIf="isEditPetQR != null" color="primary">
-            <app-qr-pet-detail *ngIf="!isEditPetQR"></app-qr-pet-detail>
+            <app-qr-pet-detail *ngIf="!isEditPetQR" [petInformation]="petInformation"></app-qr-pet-detail>
             <app-qr-pet-form *ngIf="isEditPetQR" [guidID]="guidID"></app-qr-pet-form>
         </mat-card-content>
     </mat-card>

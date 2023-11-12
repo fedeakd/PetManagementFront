@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
+import { PetQRInfotmation } from 'src/app/core/model/entity/qrInformation';
 import { QRService } from 'src/app/shared/service/repository/qr.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { QRService } from 'src/app/shared/service/repository/qr.service';
 export class QrPetInformationComponent implements OnInit {
   isEditPetQR: boolean | null = null;
   guidID!: string;
+  petInformation!: PetQRInfotmation;
 
   constructor(private routeActive: ActivatedRoute,
     private qrService: QRService,
@@ -27,7 +29,14 @@ export class QrPetInformationComponent implements OnInit {
     }).subscribe(data => {
 
       this.isEditPetQR = !data.petQR.isUsed;
+
+      if(!this.isEditPetQR){
+        this.petInformation = data.petQR.petInformation;
+      }
+
       console.log(data);
+
+
 
     },);
 

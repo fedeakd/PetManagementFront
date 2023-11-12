@@ -28,6 +28,13 @@ mat-label {
 
 }
 
+.label-detail{
+    margin-left: 0px;
+}
+
+mat-label{
+    margin-left: 0px;
+ }
 
 .text-definition {
     font-weight: bold;

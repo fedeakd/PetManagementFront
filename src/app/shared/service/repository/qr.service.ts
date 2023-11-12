@@ -25,7 +25,7 @@ export class QRService extends BaseService {
 
         return this.http
             .get<any>(
-                this.apiURL + "/v1/byGuid",
+                this.apiURL + "/v1",
                 { params: params }
             )
             .pipe(retry(1));
