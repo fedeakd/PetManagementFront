@@ -7,14 +7,9 @@ import { PetQRInfotmation } from 'src/app/core/model/entity/qrInformation';
   styleUrls: ['./qr-pet-detail.component.css']
 })
 export class QRPetDetailComponent {
-  breakpoint!: number;
   @Input() petInformation!: PetQRInfotmation;
 
   ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 400) ? 1 : 2;
   }
 
-  onResize(event: UIEvent) {
-    this.breakpoint = ((event.target as Window).innerWidth <= 400) ? 1 : 2;
-  }
 }
