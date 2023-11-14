@@ -22,13 +22,13 @@
                 <mat-label class="text-definition">Fecha de nacimiento: </mat-label>
                 <mat-label>{{petInformation.petBirthdayDate}}</mat-label>
             </div>
-            <div class="column">
+            <div class="column" *ngIf="petInformation.petOfBread != ''">
                 <mat-label class="text-definition">Raza: </mat-label>
                 <mat-label>{{petInformation.petOfBread}}</mat-label>
             </div>
         </div>
 
-        <div class="row primary">
+        <div *ngIf="petInformation.petDescription != ''"  class="row primary">
             <mat-label class="text-definition">Descripcion: </mat-label>
             <mat-label>{{petInformation.petDescription}}</mat-label>
         </div>
@@ -54,14 +54,14 @@
                 <mat-label class="text-definition">Telefono: </mat-label>
                 <mat-label>{{petInformation.ownerPhoneNumber}}</mat-label>
             </div>
-            <div class="column">
+            <div *ngIf="petInformation.petDescription != ''" class="column">
                 <mat-label class="text-definition">Telefono 2: </mat-label>
                 <mat-label>{{petInformation.ownerPhoneNumberOther}}</mat-label>
             </div>
         </div>
 
         <div class="row primary">
-            <div class="column">
+            <div class="column" *ngIf="petInformation.ownerPhoneNumber != ''">
                 <mat-label class="text-definition">Telefono 3: </mat-label>
                 <mat-label>{{petInformation.ownerPhoneNumber}}</mat-label>
             </div>
@@ -75,7 +75,7 @@
             <mat-label class="label-detail">{{petInformation.ownerAddress}}</mat-label>
         </div>
         <br>
-        <div class="row primary">
+        <div class="row primary" *ngIf="petInformation.ownerObservation != ''">
             <mat-label class="text-definition">Observacion: </mat-label>
             <mat-label>{{petInformation.ownerObservation}}</mat-label>
         </div>
