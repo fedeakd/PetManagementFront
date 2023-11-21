@@ -1,35 +1,62 @@
-<div class="container">
+<div class="container" style="padding-top: 80px;">
   <div class="center-form">
-    <h2>Generador de QR</h2>
-    <form *ngIf="this.myForm" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <h2 style="font-size: 30px; margin-bottom: 40px;">Generador de QR</h2>
+    <form
+      *ngIf="this.myForm"
+      [formGroup]="myForm"
+      (ngSubmit)="onSubmit(myForm)"
+    >
       <mat-form-field appearance="fill" class="my-custom-class">
         <mat-label>Cantidad</mat-label>
-        <input matInput type="number" id="countQR" name="countQR" formControlName="countQR" required min="0"
-          max="100" />
-
+        <input
+          matInput
+          type="number"
+          id="countQR"
+          name="countQR"
+          formControlName="countQR"
+          required
+          min="0"
+          max="100"
+        />
       </mat-form-field>
       <div *ngIf="f.countQR.touched && f.countQR.errors">
-        <mat-error *ngIf="f.countQR.errors.min">El campo tiene que ser mayor de
-          {{f.countQR.errors.min.requiredLength}} caracteres</mat-error>
-        <mat-error *ngIf="f.countQR.errors.max">El campo tiene que ser menor de
-          {{f.countQR.errors.max.requiredLength}} caracteres</mat-error>
+        <mat-error *ngIf="f.countQR.errors.min"
+          >El campo tiene que ser mayor de
+          {{ f.countQR.errors.min.requiredLength }} caracteres</mat-error
+        >
+        <mat-error *ngIf="f.countQR.errors.max"
+          >El campo tiene que ser menor de
+          {{ f.countQR.errors.max.requiredLength }} caracteres</mat-error
+        >
       </div>
 
-      <br>
-      <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid">Enviar</button>
+      <br />
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!myForm.valid"
+      >
+        Enviar
+      </button>
     </form>
-    <br> <br>
-    <div class="scrollable-container">
-        <mat-card>
-          <mat-card-content>
-            <div class="imagen-container">
-                <div *ngFor="let imagen of imagenes" class="imagen">
-                    <img [src]="imagen.download_url" alt="Imagen" width="500" height="500" />
-                  </div>            
+    <br />
+    <br />
+    <!-- <div class="scrollable-container">
+      <mat-card>
+        <mat-card-content>
+          <div class="imagen-container">
+            <div *ngFor="let imagen of imagenes" class="imagen">
+              <img
+                [src]="imagen.download_url"
+                alt="Imagen"
+                width="500"
+                height="500"
+              />
             </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div> -->
   </div>
-</div> 
+</div>

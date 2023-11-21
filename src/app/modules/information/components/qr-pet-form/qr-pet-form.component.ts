@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PetQRForm } from 'src/app/core/model/entity/qrInformation';
+import { PetQRForm, PetQRInfotmation } from 'src/app/core/model/entity/qrInformation';
 import { QRService } from 'src/app/shared/service/repository/qr.service';
 
 @Component({
@@ -17,6 +17,9 @@ export class QrPetFormComponent {
   error = '';
   sexDropdown: any = {};
 
+  @Input() petInformation: PetQRInfotmation | null = null;
+  isEdit: boolean = false;
+
   constructor(
     private qrService: QRService,
     private router: Router) {
@@ -25,33 +28,48 @@ export class QrPetFormComponent {
 
   ngOnInit(): void {
     this.sexDropdown = [
-      { id: 1, name: "Hombre" },
-      { id: 2, name: "Mujer" },
-      { id: 3, name: "Indefinido" }
+      { id: 1, name: "Macho" },
+      { id: 2, name: "Hembra" }
     ];
     let MOBILE_PATTERN = /[0-9\+\-\ ]/;
 
+    if (this.petInformation != null) {
 
-    this.myForm = new FormGroup({
-      petName: new FormControl("petName1", [Validators.required, Validators.minLength(1), Validators.maxLength(25)]),
-      petSex: new FormControl(3, [Validators.required]),
-      petBirthdayDate: new FormControl(Date.now(), [Validators.required, Validators.minLength(1), Validators.maxLength(25)]),
-      petOfBread: new FormControl("petDescription2", [Validators.maxLength(100)]),
-      petDescription: new FormControl("petDescription2", [Validators.maxLength(500)]),
+      this.isEdit = true;
+      this.myForm = new FormGroup({
+        petName: new FormControl(this.petInformation.petName, [Validators.required, Validators.minLength(1), Validators.maxLength(25)]),
+        petSex: new FormControl(this.petInformation.petSex, [Validators.required]),
+        petBirthdayDate: new FormControl(this.petInformation.petBirthdayDate, [Validators.required, Validators.minLength(1), Validators.maxLength(25)]),
+        petOfBread: new FormControl(this.petInformation.petOfBread, [Validators.maxLength(100)]),
+        petDescription: new FormControl(this.petInformation.petDescription, [Validators.maxLength(500)]),
 
-      ownerName: new FormControl("ownerName5", [Validators.required, Validators.maxLength(250)]),
-      ownerSurName: new FormControl("ownerName5", [Validators.required, Validators.maxLength(250)]),
-      ownerAddress: new FormControl("email3", [Validators.required, Validators.minLength(1), Validators.maxLength(250)]),
-      ownerPhoneNumber: new FormControl("phoneNu7mber", [Validators.required, Validators.pattern(MOBILE_PATTERN)]),
-      ownerPhoneNumberOther: new FormControl("phone7NumberOther", [Validators.maxLength(50)]),
-      ownerPhoneNumberOtherTwo: new FormControl("phone7NumberOther", [Validators.maxLength(50)]),
-      ownerEmail: new FormControl("email3", [Validators.required, Validators.email, Validators.minLength(10), Validators.maxLength(100)]),
-      ownerObservation: new FormControl("observation4", [Validators.maxLength(500)]),
+        ownerName: new FormControl(this.petInformation.ownerName, [Validators.required, Validators.maxLength(250)]),
+        ownerSurName: new FormControl(this.petInformation.ownerSurName, [Validators.required, Validators.maxLength(250)]),
+        ownerAddress: new FormControl(this.petInformation.ownerAddress, [Validators.required, Validators.minLength(1), Validators.maxLength(250)]),
+        ownerPhoneNumber: new FormControl(this.petInformation.ownerPhoneNumber, [Validators.required, Validators.pattern(MOBILE_PATTERN)]),
+        ownerPhoneNumberOther: new FormControl(this.petInformation.ownerPhoneNumberOther, [Validators.maxLength(50)]),
+        ownerPhoneNumberOtherTwo: new FormControl(this.petInformation.ownerPhoneNumberOtherTwo, [Validators.maxLength(50)]),
+        ownerEmail: new FormControl(this.petInformation.ownerEmail, [Validators.required, Validators.email, Validators.minLength(10), Validators.maxLength(100)]),
+        ownerObservation: new FormControl(this.petInformation.ownerObservation, [Validators.maxLength(500)]),
+      });
+    } else {
+      this.myForm = new FormGroup({
+        petName: new FormControl("", [Validators.required, Validators.minLength(1), Validators.maxLength(25)]),
+        petSex: new FormControl(1, [Validators.required]),
+        petBirthdayDate: new FormControl(Date.now(), [Validators.required, Validators.minLength(1), Validators.maxLength(25)]),
+        petOfBread: new FormControl("", [Validators.maxLength(100)]),
+        petDescription: new FormControl("", [Validators.maxLength(500)]),
 
-
-
-
-    });
+        ownerName: new FormControl("", [Validators.required, Validators.maxLength(250)]),
+        ownerSurName: new FormControl("", [Validators.required, Validators.maxLength(250)]),
+        ownerAddress: new FormControl("", [Validators.required, Validators.minLength(1), Validators.maxLength(250)]),
+        ownerPhoneNumber: new FormControl("", [Validators.required, Validators.pattern(MOBILE_PATTERN)]),
+        ownerPhoneNumberOther: new FormControl("", [Validators.maxLength(50)]),
+        ownerPhoneNumberOtherTwo: new FormControl("", [Validators.maxLength(50)]),
+        ownerEmail: new FormControl("", [Validators.required, Validators.email, Validators.minLength(10), Validators.maxLength(100)]),
+        ownerObservation: new FormControl("", [Validators.maxLength(500)]),
+      });
+    }
   }
 
   onSubmit(form: FormGroup) {
@@ -77,13 +95,24 @@ export class QrPetFormComponent {
       ownerObservation: form.value.ownerObservation,
     }
 
-    this.qrService.CreatePetQrInformation(this.guidID, petQR).subscribe((data: {}) => {
-      location.reload();
-    }, err => {
-      console.log(err);
-      // if (err?.reponseError)
-      // this.messageError = JSON.parse(err?.reponseError)?.Description[0];
-    },);
+    if (this.isEdit) {
+      this.qrService.EditPetQrInformation(this.guidID, petQR).subscribe((data: {}) => {
+        // location.reload();
+        this.router.navigateByUrl(`/Information/QRPetInformation/${this.guidID}`);
+      }, err => {
+        console.log(err);
+        // if (err?.reponseError)
+        // this.messageError = JSON.parse(err?.reponseError)?.Description[0];
+      },);
+    } else {
+      this.qrService.CreatePetQrInformation(this.guidID, petQR).subscribe((data: {}) => {
+        location.reload();
+      }, err => {
+        console.log(err);
+        // if (err?.reponseError)
+        // this.messageError = JSON.parse(err?.reponseError)?.Description[0];
+      },);
+    }
 
     console.log(form.value);
   }

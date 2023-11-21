@@ -31,6 +31,49 @@ export class QRService extends BaseService {
             .pipe(retry(1));
     }
 
+    getbyToken(token?: string): Observable<any> {
+        let params: HttpParams = new HttpParams();
+        if (token !== undefined && token !== null) {
+            params = params.append('token', token);
+        }
+
+        return this.http
+            .get<any>(
+                this.apiURL + "/v1/gbt",
+                { params: params }
+            )
+            .pipe(retry(1));
+    }
+
+    sendEditEmail(guid?: string): Observable<any> {
+        let params: HttpParams = new HttpParams();
+        if (guid !== undefined && guid !== null) {
+            params = params.append('guid', guid);
+        }
+
+        return this.http
+            .get<any>(
+                this.apiURL + "/v1/SendEmail",
+                { params: params }
+            )
+            .pipe(retry(1));
+    }
+
+    sendEditEmailPost(guid?: string): Observable<any> {
+        let params: HttpParams = new HttpParams();
+        if (guid !== undefined && guid !== null) {
+            params = params.append('guid', guid);
+        }
+
+        return this.http
+            .post<any>(
+                this.apiURL + "/v1/SendEmail",
+                JSON.stringify(guid),
+                this.httpOptions
+            )
+            .pipe(retry(1));
+    }
+
     getGenerate(count?: number): Observable<any> {
         let params: HttpParams = new HttpParams();
         if (count !== undefined && count !== null) {
@@ -56,6 +99,22 @@ export class QRService extends BaseService {
         return this.http
             .post<any>(
                 this.apiURL + "/v1/CreatePetQrInformation",
+                JSON.stringify(json),
+                this.httpOptions
+            )
+            .pipe(retry(1));
+    }
+
+    EditPetQrInformation(guid: string, petQrInformation: PetQRInfotmation): Observable<any> {
+
+        let json = {
+            guid: guid,
+            petInformation: petQrInformation
+        };
+
+        return this.http
+            .post<any>(
+                this.apiURL + "/v1/EditPetQrInformation",
                 JSON.stringify(json),
                 this.httpOptions
             )

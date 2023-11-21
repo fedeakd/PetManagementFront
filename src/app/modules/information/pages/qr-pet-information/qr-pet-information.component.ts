@@ -23,25 +23,19 @@ export class QrPetInformationComponent implements OnInit {
   ngOnInit(): void {
     this.guidID = this.routeActive.snapshot.paramMap.get('guidID') ?? "";
 
-
     forkJoin({
       petQR: this.qrService.getbyGuid(this.guidID),
     }).subscribe(data => {
 
       this.isEditPetQR = !data.petQR.isUsed;
 
-      if(!this.isEditPetQR){
+      if (!this.isEditPetQR) {
         this.petInformation = data.petQR.petInformation;
       }
-
       console.log(data);
-
-
-
     },);
 
     console.log(this.guidID);
 
   }
-
 }

@@ -1,0 +1,26 @@
+.div-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: green;
+}
+
+@media (min-width: 768px) {
+    .custom-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.section {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.text-inside-grid {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
