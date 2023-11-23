@@ -49,7 +49,8 @@ export class QrPetFormComponent {
         ownerPhoneNumber: new FormControl(this.petInformation.ownerPhoneNumber, [Validators.required, Validators.pattern(MOBILE_PATTERN)]),
         ownerPhoneNumberOther: new FormControl(this.petInformation.ownerPhoneNumberOther, [Validators.maxLength(50)]),
         ownerPhoneNumberOtherTwo: new FormControl(this.petInformation.ownerPhoneNumberOtherTwo, [Validators.maxLength(50)]),
-        ownerEmail: new FormControl(this.petInformation.ownerEmail, [Validators.required, Validators.email, Validators.minLength(10), Validators.maxLength(100)]),
+        // ownerEmail: new FormControl(this.petInformation.ownerEmail, [Validators.required, Validators.email, Validators.minLength(10), Validators.maxLength(100)]),
+        ownerEmail: new FormControl({ value: this.petInformation.ownerEmail, disabled: true }, [Validators.required, Validators.email, Validators.minLength(10), Validators.maxLength(100)]),
         ownerObservation: new FormControl(this.petInformation.ownerObservation, [Validators.maxLength(500)]),
       });
     } else {
