@@ -6,6 +6,12 @@
     background-color: green;
 }
 
+@media(max-width: 390px) {
+    .div-center {
+        height: auto;
+    }
+}
+
 @media (min-width: 768px) {
     .custom-card {
         max-width: 400px;
