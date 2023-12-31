@@ -1,37 +1,25 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .center-form {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    /* Coloca los elementos en columna */
-    align-items: center;
-    /* Centra los elementos horizontalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
 }
 
 .my-custom-class {
-    width: 500px;
-    /* Ajusta el ancho según tus necesidades */
+  width: 100%;
 }
 
-.scrollable-container {
-    width: 550px; /* Ancho por defecto */
-    height: 500px; /* Alto por defecto */
-    border: 1px solid #ccc; /* Borde para visualización */
-    overflow: auto; /* Agregar barra de desplazamiento si es necesario */
-  
-  }
-  
-  .imagen-container {
-    display: inline-block;
-    margin-right: 10px; /* Espacio entre las imágenes */
-  }
-  
-  .imagen {
-    max-width: 100px; /* Tamaño máximo de las imágenes */
-  }
+form{
+  width: 80%;
+}
+
+button{
+  height: 6vh !important;
+  width: 100%;
+}
