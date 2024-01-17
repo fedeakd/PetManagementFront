@@ -88,10 +88,14 @@
           mat-raised-button
           color="primary"
           (click)="requestEditInformation()"
+          [disabled]="editRequestSended"
         >
           Modificar datos
         </button>
-        <mat-label> Se enviará un un enlace al mail registrado</mat-label>
+
+        <!-- <mat-label> Se enviará un un enlace al mail registrado</mat-label> -->
+        <mat-label>{{editRequestText}}</mat-label>
+
       </div>
       <!-- <mat-error *ngIf="error">{{error}}</mat-error> -->
     </div>

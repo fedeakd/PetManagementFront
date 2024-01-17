@@ -22,7 +22,7 @@ export class PlacesService {
           resolve(this.userLocation);
         },
         (err) => {
-          alert('No se pudo obtener tu ubicación');
+          // alert('No se pudo obtener tu ubicación');
           console.log(err);
           reject();
         }

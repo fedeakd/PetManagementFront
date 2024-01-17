@@ -66,7 +66,7 @@ export class QRService extends BaseService {
     }
 
     return this.http
-      .get<any>(this.apiURL + '/v1/SendEmail2', { params: params })
+      .get<any>(this.apiURL + '/v1/SendEmailLocalization', { params: params })
       .pipe(retry(1));
   }
 
